@@ -25,6 +25,7 @@ export default class App extends React.Component {
       error: err,
       posts: posts || []
     })
+    console.log(posts)
   }
 
   refreshList(err) {
@@ -40,8 +41,6 @@ export default class App extends React.Component {
       <div>
       <h1>MicroBlog Project</h1>
       <a href='#'>Add Post</a>
-      <h3>Random Posts</h3>
-      {this.state.posts.map((post, index) => <p key={index}><strong>{post.name}</strong><br />{post.content}</p>)}
       <RandomPosts value={this.state} />
       <AddPost />
       </div>
