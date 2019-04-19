@@ -4,7 +4,6 @@ const router = express.Router()
 const db = require('../db/db.js')
 
 router.get('/', (req, res) => {
-    console.log('im in the route')
     db.getPosts()
     .then(posts => {
         res.send(posts)

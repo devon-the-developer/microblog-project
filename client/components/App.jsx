@@ -1,5 +1,6 @@
 import React from 'react'
 import { AddPost } from './AddPost';
+import { RandomPosts } from './RandomPosts'
 
 import { getPosts } from '../api'
 
@@ -24,7 +25,6 @@ export default class App extends React.Component {
       error: err,
       posts: posts || []
     })
-    console.log(posts)
   }
 
   refreshList(err) {
@@ -36,11 +36,13 @@ export default class App extends React.Component {
 
 
   render() {
-    console.log(this.state.props)
     return (
       <div>
       <h1>MicroBlog Project</h1>
-      {this.state.posts.map((post, index) => <p key={index}>{post.content}</p>)}
+      <a href='#'>Add Post</a>
+      <h3>Random Posts</h3>
+      {this.state.posts.map((post, index) => <p key={index}><strong>{post.name}</strong><br />{post.content}</p>)}
+      <RandomPosts value={this.state} />
       <AddPost />
       </div>
     )
