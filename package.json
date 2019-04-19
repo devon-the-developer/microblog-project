@@ -12,7 +12,6 @@
     "server": "node server",
     "start": "webpack && node server",
     "test": "jest --watchAll"
-  
   },
   "babel": {
     "presets": [
