@@ -25,7 +25,6 @@ export default class App extends React.Component {
       error: err,
       posts: posts || []
     })
-    console.log(posts)
   }
 
   refreshList(err) {
@@ -37,8 +36,15 @@ export default class App extends React.Component {
 
 
   render() {
+    const basicStyle = {
+      padding: 50,
+      background: '#abbaab',
+      background: '-webkit-linear-gradient(to top, #ffffff, #abbaab)',/* Chrome 10-25, Safari 5.1-6 */
+      background: 'linear-gradient(to top, #ffffff, #abbaab)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
     return (
-      <div>
+      <div style={basicStyle}>
       <h1>MicroBlog Project</h1>
       <a href='#'>Add Post</a>
       <RandomPosts value={this.state} />

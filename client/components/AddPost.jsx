@@ -23,6 +23,7 @@ export class AddPost extends React.Component {
         return (
             <div>
                 <form>
+                    <h4>Add Post</h4>
                     <label>Title: </label>
                     <input type='text' name='postTitle' onChange={this.handleChange}></input>
                     <br />
@@ -30,9 +31,10 @@ export class AddPost extends React.Component {
                     <input type='text' name='postTags' onChange={this.handleChange}></input>
                     <br />
                     <label>Content: </label>
-                    <input type='text' name='postContent' height='200px' onChange={this.handleChange}></input>
+                    <textarea type='text' name='postContent' onChange={this.handleChange} rows='50' cols='100'></textarea>
+                    {/* <input type='text' name='postContent' height='200px' onChange={this.handleChange}></input> */}
                     <br />
-                    <button>Submit</button>
+                    <button onClick={console.log(this.state)}>Submit</button>
                 </form>
                 <p>{this.state.postTitle} {this.state.postContent}</p>
             </div>
