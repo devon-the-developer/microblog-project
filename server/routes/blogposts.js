@@ -13,4 +13,9 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    console.log('routes', req.body)
+    db.savePost(req.body)
+    .then()
+})
 module.exports = router

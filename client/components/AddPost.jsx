@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { addPost } from '../api'
+
+
 export class AddPost extends React.Component {
     constructor(props) {
         super(props) 
@@ -9,6 +12,7 @@ export class AddPost extends React.Component {
             postContent: null
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
@@ -17,6 +21,13 @@ export class AddPost extends React.Component {
             [name]:value
         })
         console.log(event.target.name)
+    }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit: ', this.state)
+        addPost(this.state)
+        .then()
     }
 
     render() {
@@ -34,7 +45,7 @@ export class AddPost extends React.Component {
                     <textarea type='text' name='postContent' onChange={this.handleChange} rows='50' cols='100'></textarea>
                     {/* <input type='text' name='postContent' height='200px' onChange={this.handleChange}></input> */}
                     <br />
-                    <button onClick={console.log(this.state)}>Submit</button>
+                    <button onClick={this.handleSubmit}>Submit</button>
                 </form>
                 <p>{this.state.postTitle} {this.state.postContent}</p>
             </div>
