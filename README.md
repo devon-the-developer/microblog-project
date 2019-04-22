@@ -4,7 +4,7 @@ A micro blogging web app that can be used for storing useful tips/information
 
 <strong>MVP:</strong> 
 
-Allows a user to enter a new tip/blog via a form 
+Allows a user to enter a new tip/blog via a form (Done)
 
 A user can view each post made individually
 
