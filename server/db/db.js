@@ -11,11 +11,10 @@ function getPosts (db = connection) {
     return db('blogPosts').select()
 }
 
-function savePost (post) {
+function savePost (post, db = connection) {
     //post.dateCreated = new Date(Date.now())
-    post = JSON.stringify(post)
+    // post = JSON.stringify(post)
     
     return db('blogPosts')
     .insert(post)
-    .then()
 }

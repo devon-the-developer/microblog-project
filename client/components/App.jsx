@@ -1,8 +1,8 @@
 import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
+
 import { AddPost } from './AddPost';
 import { RandomPosts } from './RandomPosts'
-
 import { getPosts } from '../api'
 
 

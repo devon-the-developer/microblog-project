@@ -7,9 +7,9 @@ export class AddPost extends React.Component {
     constructor(props) {
         super(props) 
         this.state = {
-            postTitle: null,
-            postTags: null,
-            postContent: null
+            name: null,
+            tags: null,
+            content: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,12 +20,10 @@ export class AddPost extends React.Component {
         this.setState({
             [name]:value
         })
-        console.log(event.target.name)
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log('handleSubmit: ', this.state)
         addPost(this.state)
         .then()
     }
@@ -36,13 +34,13 @@ export class AddPost extends React.Component {
                 <form>
                     <h4>Add Post</h4>
                     <label>Title: </label>
-                    <input type='text' name='postTitle' onChange={this.handleChange}></input>
+                    <input type='text' name='name' onChange={this.handleChange}></input>
                     <br />
                     <label>Tags: </label>
-                    <input type='text' name='postTags' onChange={this.handleChange}></input>
+                    <input type='text' name='tags' onChange={this.handleChange}></input>
                     <br />
                     <label>Content: </label>
-                    <textarea type='text' name='postContent' onChange={this.handleChange} rows='50' cols='100'></textarea>
+                    <textarea type='text' name='content' onChange={this.handleChange} rows='50' cols='100'></textarea>
                     {/* <input type='text' name='postContent' height='200px' onChange={this.handleChange}></input> */}
                     <br />
                     <button onClick={this.handleSubmit}>Submit</button>
