@@ -5,28 +5,33 @@ export default class DisplayPost extends React.Component {
         super(props)
 
         this.state= {
-            posts: ''
+            posts: '',
+            currentId: ''
         }
     }
 
     componentWillMount(){
+        console.log('WillMount')
         this.renderPost()
     }
 
     renderPost = () => {
+        console.log('renderPost')
         this.setState({
-            posts: this.props.value
+            posts: this.props.value,
+            currentId: parseInt(this.props.match.params.id) 
         })
     }
 
     render(){
        
-        const currentId = parseInt(this.props.match.params.id) + 1
-        console.log("currentId + 1: ", currentId) 
+        // const currentId = parseInt(this.props.match.params.id) + 1
+        console.log("currentId + 1: ", this.state.currentId) 
         // const currentPost = this.props.value.find(post => post.id == currentId) 
         // console.log("currentPost: ", currentPost)
-        console.log("currentPost via state: ", this.state.posts.find(post => post.id == currentId))
-        const currentPost = this.state.posts.find(post => post.id == currentId) || ''
+        console.log('this.state.posts :', this.state.posts)
+        console.log("currentPost via state: ", this.state.posts.find(post => post.id == this.state.currentId))
+        const currentPost = this.state.posts.find(post => post.id == this.state.currentId) || ''
         return(
             <div>
             <h2>{currentPost.name}</h2>

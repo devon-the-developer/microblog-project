@@ -7,7 +7,7 @@ export class RandomPosts extends React.Component {
         return (
             <div>
                 <h4>Random Posts</h4>
-                {this.props.value.posts.map((post, index) => <p key={index}><strong><Link to={`/post/${index}`}>{post.name}</Link></strong><br />{post.content}</p>)}
+                {this.props.value.posts.map((post, index) => <p key={index}><strong><Link to={`/post/${post.id}`}>{post.name}</Link></strong><br />{post.content}</p>)}
             </div>
         )
     }

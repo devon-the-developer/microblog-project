@@ -6,7 +6,6 @@ export function getPosts (callback) {
     request
     .get(blogPostUrl)
     .end((err, res) => {
-        console.log(res.body)
         callback(err, res.body)
     }) 
 }
