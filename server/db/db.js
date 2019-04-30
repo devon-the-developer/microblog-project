@@ -4,7 +4,8 @@ const connection = require('knex')(config)
 
 module.exports = {
     getPosts,
-    savePost
+    savePost,
+    deletePost
 }
 
 function getPosts (db = connection) {
@@ -17,4 +18,11 @@ function savePost (post, db = connection) {
     
     return db('blogPosts')
     .insert(post)
+}
+
+function deletePost (id, db = connection) {
+    return db('blogPosts')
+    .where('id', id)
+    .del()
+    .then(data => console.log(data))
 }

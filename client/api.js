@@ -16,3 +16,11 @@ export function addPost (post) {
     .send(post)
     .then()
 }
+
+export function deletePost (id) {
+    console.log('deleting: ', id)
+    return request.del('/api/v1/deletepost')
+    .send({id: id})
+    .set('Accept', 'application/json')
+    .end(function(err, res){})
+}

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { deletePost } from '../api'
+
 export default class DisplayPost extends React.Component {
     constructor(props) {
         super(props)
@@ -11,16 +13,20 @@ export default class DisplayPost extends React.Component {
     }
 
     componentWillMount(){
-        console.log('WillMount')
         this.renderPost()
     }
 
     renderPost = () => {
-        console.log('renderPost')
         this.setState({
             posts: this.props.value,
             currentId: parseInt(this.props.match.params.id) 
         })
+    }
+
+    deletePost = () => {
+        console.log('Delete')
+        deletePost(this.state.currentId)
+        this.props.history.push('/')
     }
 
     render(){
@@ -37,6 +43,9 @@ export default class DisplayPost extends React.Component {
             <h2>{currentPost.name}</h2>
             <span><strong>Tags: </strong>{currentPost.tags}</span>
             <p>{currentPost.content}</p>
+            <div>
+                <button onClick={this.deletePost}>Delete Post</button>
+            </div>
 
 
             </div>
