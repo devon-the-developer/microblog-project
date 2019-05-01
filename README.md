@@ -4,14 +4,16 @@ A micro blogging web app that can be used for storing useful tips/information
 
 <strong>MVP:</strong> 
 
-Allows a user to enter a new tip/blog via a form 
+Allows a user to enter a new tip/blog via a form (Done)
 
-A user can view each post made individually
+A user can view each post made individually (Done)
 
 
 <strong>Feature Ideas:</strong>
 
 A user should be able to search and sort through their posts.
+
+A user should be able to edit an already made post.
 
 Rating for each tip/post
 
