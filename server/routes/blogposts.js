@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log('routes', req.body)
     db.savePost(req.body)
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500))

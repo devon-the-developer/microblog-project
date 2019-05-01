@@ -26,6 +26,7 @@ export class AddPost extends React.Component {
         event.preventDefault()
         addPost(this.state)
         .then()
+        this.props.history.push('/')
     }
 
     render() {

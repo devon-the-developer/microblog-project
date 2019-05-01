@@ -24,19 +24,12 @@ export default class DisplayPost extends React.Component {
     }
 
     deletePost = () => {
-        console.log('Delete')
         deletePost(this.state.currentId)
         this.props.history.push('/')
     }
 
     render(){
        
-        // const currentId = parseInt(this.props.match.params.id) + 1
-        console.log("currentId + 1: ", this.state.currentId) 
-        // const currentPost = this.props.value.find(post => post.id == currentId) 
-        // console.log("currentPost: ", currentPost)
-        console.log('this.state.posts :', this.state.posts)
-        console.log("currentPost via state: ", this.state.posts.find(post => post.id == this.state.currentId))
         const currentPost = this.state.posts.find(post => post.id == this.state.currentId) || ''
         return(
             <div>

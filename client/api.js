@@ -11,14 +11,12 @@ export function getPosts (callback) {
 }
  
 export function addPost (post) {
-    console.log('api : ', post)
     return request.post(blogPostUrl)
     .send(post)
     .then()
 }
 
 export function deletePost (id) {
-    console.log('deleting: ', id)
     return request.del('/api/v1/deletepost')
     .send({id: id})
     .set('Accept', 'application/json')
