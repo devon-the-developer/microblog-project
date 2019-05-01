@@ -13,7 +13,11 @@ A user can view each post made individually (Done)
 
 A user should be able to search and sort through their posts.
 
-A user should be able to edit an already made post.
+A user should be able to delete each post
+
+A user should be able to edit a post
+
+React Testing 
 
 Rating for each tip/post
 

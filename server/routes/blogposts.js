@@ -13,4 +13,12 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    db.savePost(req.body)
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(500))
+})
+
+
+
 module.exports = router

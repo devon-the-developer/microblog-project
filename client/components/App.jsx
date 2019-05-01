@@ -1,8 +1,10 @@
 import React from 'react'
+import {HashRouter as Router, Route, Link} from 'react-router-dom'
+
 import { AddPost } from './AddPost';
 import { RandomPosts } from './RandomPosts'
-
 import { getPosts } from '../api'
+import DisplayPost from './DisplayPost';
 
 
 export default class App extends React.Component {
@@ -44,12 +46,21 @@ export default class App extends React.Component {
 
     }
     return (
-      <div style={basicStyle}>
-      <h1>MicroBlog Project</h1>
-      <a href='#'>Add Post</a>
-      <RandomPosts value={this.state} />
-      <AddPost />
-      </div>
+      <Router>
+        <div style={basicStyle}>
+          <h1><strong>MicroBlog Project</strong></h1>
+          <div style={{display:'inline-block'}}>
+            <Link to='/'>Home</Link> <Link to='/addpost'>Add Post</Link>
+          </div>
+          <br />
+          <br />
+          <div>
+            <Route exact path='/' render={(props) => <RandomPosts value={this.state} />} />
+            <Route exact path='/post/:id' render={(props) => <DisplayPost {...props} value={this.state.posts} />} />
+            <Route path='/addpost' component={AddPost} />
+          </div>
+        </div>
+      </Router>
     )
   }
 }
