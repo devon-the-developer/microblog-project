@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { deletePost } from '../api'
 
@@ -44,7 +45,7 @@ export default class DisplayPost extends React.Component {
                     <button onClick={this.deletePost}>Delete Post</button>
                 </div>
                 <div>
-                    <button onClick={this.editPost}>Edit Post</button>
+                    <Link to='/editpost'><button onClick={this.editPost}>Edit Post</button></Link>
                 </div>
 
 
