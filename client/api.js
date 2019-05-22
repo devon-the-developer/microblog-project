@@ -22,3 +22,9 @@ export function deletePost (id) {
     .set('Accept', 'application/json')
     .end(function(err, res){})
 }
+
+export function editPost (editContent) {
+    return request.post('api/v1/editpost')
+    .send(editContent)
+    .then()
+}

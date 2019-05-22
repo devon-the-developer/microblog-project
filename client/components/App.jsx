@@ -59,7 +59,7 @@ export default class App extends React.Component {
             <Route exact path='/' render={(props) => <RandomPosts value={this.state} />} />
             <Route exact path='/post/:id' render={(props) => <DisplayPost {...props} value={this.state.posts} />} />
             <Route path='/addpost' component={AddPost} />
-            <Route path='/editpost' component={EditPost} />
+            <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} />
           </div>
         </div>
       </Router>
