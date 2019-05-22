@@ -27,18 +27,25 @@ export default class DisplayPost extends React.Component {
         deletePost(this.state.currentId)
         this.props.history.push('/')
     }
+    
+    editPost = () => {
+        console.log('clicked edit')
+    }
 
     render(){
        
         const currentPost = this.state.posts.find(post => post.id == this.state.currentId) || ''
         return(
             <div>
-            <h2>{currentPost.name}</h2>
-            <span><strong>Tags: </strong>{currentPost.tags}</span>
-            <p>{currentPost.content}</p>
-            <div>
-                <button onClick={this.deletePost}>Delete Post</button>
-            </div>
+                <h2>{currentPost.name}</h2>
+                <span><strong>Tags: </strong>{currentPost.tags}</span>
+                <p>{currentPost.content}</p>
+                <div>
+                    <button onClick={this.deletePost}>Delete Post</button>
+                </div>
+                <div>
+                    <button onClick={this.editPost}>Edit Post</button>
+                </div>
 
 
             </div>
