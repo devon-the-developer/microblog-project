@@ -26,10 +26,15 @@ export class EditPost extends React.Component {
 
     handleChange = (event) => {
         console.log(event)
+        this.setState({
+            editPostTothis: {
+                [event.target.name]: event.target.value
+            }
+        })
     }
 
     render(){
-        console.log(this.state)
+        console.log(this.state.editPostTothis)
         const currentPost = this.state.posts.find(post => post.id == this.state.currentId) || '' 
         console.log('currentPost: ', currentPost)
         return (
@@ -38,13 +43,13 @@ export class EditPost extends React.Component {
                 <form>
                     <h4>Edit Post</h4>
                     <label>Title: </label>
-                    <input type='text' name='name' onChange={this.handleChange} value={currentPost.name}></input>
+                    <input type='text' name='name' onChange={this.handleChange} defaultValue={currentPost.name}></input>
                     <br />
                     <label>Tags: </label>
-                    <input type='text' name='tags' onChange={this.handleChange} value={currentPost.tags}></input>
+                    <input type='text' name='tags' onChange={this.handleChange} defaultValue={currentPost.tags}></input>
                     <br />
                     <label>Content: </label>
-                    <textarea type='text' name='content' onChange={this.handleChange} value={currentPost.content} rows='50' cols='100'></textarea>
+                    <textarea type='text' name='content' onChange={this.handleChange} defaultValue={currentPost.content} rows='50' cols='100'></textarea>
                     <br />
                     <button onClick={this.handleSubmit}>Save Changes</button>
                 </form>
