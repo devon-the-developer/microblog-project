@@ -24,7 +24,8 @@ export function deletePost (id) {
 }
 
 export function editPost (editContent) {
-    return request.post('api/v1/editpost')
+    console.log('API editContent: ', editContent)
+    return request.post(blogPostUrl + '/editpost')
     .send(editContent)
     .then()
 }

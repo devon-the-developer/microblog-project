@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { editPost } from '../api'
+
 export class EditPost extends React.Component {
     constructor(props) {
         super(props)
@@ -28,12 +30,18 @@ export class EditPost extends React.Component {
         this.setState({
                 [event.target.name]: event.target.value
         })
-
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
         console.log('object i want to send: ', this.state.currentId, this.state.nameChangeTo, this.state.tagsChangeTo, this.state.contentChangeTo)
+        const editObject = {
+            id: this.state.currentId,
+            name: this.state.nameChangeTo,
+            tags: this.state.tagsChangeTo,
+            content: this.state.contentChangeTo
+        }
+        editPost(editObject)
     }
 
     render(){
