@@ -13,13 +13,17 @@ A user can view each post made individually (Done)
 
 A user should be able to search and sort through their posts.
 
-A user should be able to delete each post
+A user should be able to delete each post (Done)
 
-A user should be able to edit a post
+A user should be able to edit a post (Working)
+
+A user should be able to give a Rating for each tip/post
+
+A user should be able to see a list of random posts
+
+Set it up to work with Redux
 
 React Testing 
-
-Rating for each tip/post
 
 Simple CSS styling
 
@@ -35,3 +39,4 @@ Databases
 
 Basic CSS
 
+Redux
