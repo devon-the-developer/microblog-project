@@ -19,6 +19,11 @@ router.post('/', (req, res) => {
     .catch(() => res.sendStatus(500))
 })
 
-
+router.post('/editpost', (req, res) => {
+    console.log('route: editpost in blogposts', req.body.id)
+    db.editPost(req.body.id, req.body)
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(500))
+})
 
 module.exports = router
