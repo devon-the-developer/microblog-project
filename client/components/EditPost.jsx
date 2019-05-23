@@ -42,6 +42,7 @@ export class EditPost extends React.Component {
             content: this.state.contentChangeTo
         }
         editPost(editObject)
+        this.props.history.push('/')
     }
 
     render(){
