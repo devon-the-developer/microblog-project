@@ -17,32 +17,11 @@ class App extends React.Component {
       error: null,
       posts: []
     }
-    // this.renderPosts = this.renderPosts.bind(this)
-    // this.refreshList = this.refreshList.bind(this)
   }
 
   componentDidMount() {
-    this.refreshList()
-    // this.props.getPosts()
-    // this.setState({
-    //   posts: this.props.posts
-    // })
+    this.props.getPosts()
   }
-
-  renderPosts(err, posts) {
-    this.setState({
-      error: err,
-      posts: this.props.posts || []
-    })
-  }
-
-  refreshList = (err) => {
-    this.setState({
-      error: err,
-    })
-    this.props.getPosts(this.renderPosts)
-  }
-
 
   render() {
     const basicStyle = {
@@ -52,7 +31,6 @@ class App extends React.Component {
       background: 'linear-gradient(to top, #ffffff, #abbaab)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
-    console.log('renderlog: ', this.props.posts)
     return (
       <Router>
         <div style={basicStyle}>
@@ -63,7 +41,7 @@ class App extends React.Component {
           <br />
           <br />
           <div>
-            <Route exact path='/' render={(props) => <RandomPosts {...props} value={this.state} />} />
+            <Route exact path='/' component={RandomPosts} />
             <Route exact path='/post/:id' render={(props) => <DisplayPost {...props} value={this.state.posts} />} />
             <Route path='/addpost' component={AddPost} />
             <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} />
