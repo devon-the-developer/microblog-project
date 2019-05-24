@@ -2,39 +2,45 @@ import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
 
 import { AddPost } from './AddPost'
-import { RandomPosts } from './RandomPosts'
+import  RandomPosts  from './RandomPosts'
 import { EditPost } from './EditPost'
 import { getPosts } from '../api'
 import DisplayPost from './DisplayPost'
+import { connect } from 'react-redux';
+import { fetchBlogPosts } from '../actions';
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       error: null,
       posts: []
     }
-    this.renderPosts = this.renderPosts.bind(this)
-    this.refreshList = this.refreshList.bind(this)
+    // this.renderPosts = this.renderPosts.bind(this)
+    // this.refreshList = this.refreshList.bind(this)
   }
 
   componentDidMount() {
     this.refreshList()
+    // this.props.getPosts()
+    // this.setState({
+    //   posts: this.props.posts
+    // })
   }
 
   renderPosts(err, posts) {
     this.setState({
       error: err,
-      posts: posts || []
+      posts: this.props.posts || []
     })
   }
 
-  refreshList(err) {
+  refreshList = (err) => {
     this.setState({
       error: err,
     })
-    getPosts(this.renderPosts)
+    this.props.getPosts(this.renderPosts)
   }
 
 
@@ -46,6 +52,7 @@ export default class App extends React.Component {
       background: 'linear-gradient(to top, #ffffff, #abbaab)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
+    console.log('renderlog: ', this.props.posts)
     return (
       <Router>
         <div style={basicStyle}>
@@ -56,7 +63,7 @@ export default class App extends React.Component {
           <br />
           <br />
           <div>
-            <Route exact path='/' render={(props) => <RandomPosts value={this.state} />} />
+            <Route exact path='/' render={(props) => <RandomPosts {...props} value={this.state} />} />
             <Route exact path='/post/:id' render={(props) => <DisplayPost {...props} value={this.state.posts} />} />
             <Route path='/addpost' component={AddPost} />
             <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} />
@@ -67,5 +74,18 @@ export default class App extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    posts: state.blogposts
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts: () => dispatch(fetchBlogPosts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
