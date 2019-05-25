@@ -21,7 +21,7 @@ class DisplayPost extends React.Component {
     }
 
     deletePost = () => {
-        deletePost(this.state.currentId)
+        deletePost(this.props.data.currentPostId)
         this.props.history.push('/')
     }
     
