@@ -42,9 +42,9 @@ class App extends React.Component {
           <br />
           <div>
             <Route exact path='/' component={RandomPosts} />
-            <Route exact path='/post/:id' render={(props) => <DisplayPost {...props} value={this.state.posts} />} />
+            <Route exact path='/post/:id' component={DisplayPost} />
             <Route path='/addpost' component={AddPost} />
-            <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} />
+            {/* <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} /> */}
           </div>
         </div>
       </Router>

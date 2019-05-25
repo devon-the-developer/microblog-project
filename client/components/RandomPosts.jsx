@@ -9,7 +9,7 @@ class RandomPosts extends React.Component {
         return (
             <div>
                 <h4>Random Posts</h4>
-                {this.props.posts.map((post, index) => <p key={index}><strong><Link to={`/post/${post.id}`}>{post.name}</Link></strong><br />{post.content}</p>)}
+                {this.props.data.posts.map((post, index) => <p key={index}><strong><Link to={`/post/${post.id}`}>{post.name}</Link></strong><br />{post.content}</p>)}
             </div>
         )
     }
@@ -17,7 +17,7 @@ class RandomPosts extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.blogposts || []
+        data: state.blogposts || []
     }
 }
 

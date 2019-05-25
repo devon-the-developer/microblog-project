@@ -31,11 +31,11 @@ class DisplayPost extends React.Component {
 
     render(){
        
-        // const currentPost = this.state.posts.find(post => post.id == this.state.currentId) || ''
+        const currentPost = this.props.data.posts.find(post => post.id == this.props.data.currentPostId) || ''
         console.log('Global State: ', this.props)
         return(
             <div>
-                {/* <h2>{currentPost.name}</h2>
+                <h2>{currentPost.name}</h2>
                 <span><strong>Tags: </strong>{currentPost.tags}</span>
                 <p>{currentPost.content}</p>
                 <div>
@@ -43,7 +43,7 @@ class DisplayPost extends React.Component {
                 </div>
                 <div>
                     <Link to='/editpost/2'><button onClick={this.editPost}>Edit Post</button></Link>
-                </div> */}
+                </div>
 
 
             </div>
