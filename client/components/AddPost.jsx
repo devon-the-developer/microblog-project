@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { addPost } from '../api'
 
 
-export class AddPost extends React.Component {
+class AddPost extends React.Component {
     constructor(props) {
         super(props) 
         this.state = {
@@ -11,18 +12,16 @@ export class AddPost extends React.Component {
             tags: null,
             content: null
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         const {name, value} = event.target
         this.setState({
             [name]:value
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault()
         addPost(this.state)
         .then()
@@ -42,12 +41,12 @@ export class AddPost extends React.Component {
                     <br />
                     <label>Content: </label>
                     <textarea type='text' name='content' onChange={this.handleChange} rows='50' cols='100'></textarea>
-                    {/* <input type='text' name='postContent' height='200px' onChange={this.handleChange}></input> */}
                     <br />
                     <button onClick={this.handleSubmit}>Submit</button>
                 </form>
-                <p>{this.state.postTitle} {this.state.postContent}</p>
             </div>
         )
     }
 }
+
+export default connect()(AddPost)
