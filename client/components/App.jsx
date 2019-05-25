@@ -1,42 +1,27 @@
 import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
 
-import { AddPost } from './AddPost'
-import { RandomPosts } from './RandomPosts'
-import { EditPost } from './EditPost'
+import  AddPost from './AddPost'
+import  RandomPosts  from './RandomPosts'
+import  EditPost  from './EditPost'
 import { getPosts } from '../api'
 import DisplayPost from './DisplayPost'
+import { connect } from 'react-redux';
+import { fetchBlogPosts } from '../actions';
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       error: null,
       posts: []
     }
-    this.renderPosts = this.renderPosts.bind(this)
-    this.refreshList = this.refreshList.bind(this)
   }
 
   componentDidMount() {
-    this.refreshList()
+    this.props.getPosts()
   }
-
-  renderPosts(err, posts) {
-    this.setState({
-      error: err,
-      posts: posts || []
-    })
-  }
-
-  refreshList(err) {
-    this.setState({
-      error: err,
-    })
-    getPosts(this.renderPosts)
-  }
-
 
   render() {
     const basicStyle = {
@@ -56,10 +41,10 @@ export default class App extends React.Component {
           <br />
           <br />
           <div>
-            <Route exact path='/' render={(props) => <RandomPosts value={this.state} />} />
-            <Route exact path='/post/:id' render={(props) => <DisplayPost {...props} value={this.state.posts} />} />
+            <Route exact path='/' component={RandomPosts} />
+            <Route exact path='/post/:id' component={DisplayPost} />
             <Route path='/addpost' component={AddPost} />
-            <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} />
+            <Route exact path='/editpost' component={EditPost} />
           </div>
         </div>
       </Router>
@@ -67,5 +52,17 @@ export default class App extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    data: state.blogposts
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts: () => dispatch(fetchBlogPosts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 

@@ -1,13 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { editPost } from '../api'
 
-export class EditPost extends React.Component {
+class EditPost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: [],
-            currentId: null, 
             nameChangeTo: null,
             tagsChangeTo: null,
             contentChangeTo: null
@@ -15,18 +14,10 @@ export class EditPost extends React.Component {
     }
 
     componentDidMount() {
-        this.renderPost()
-    }
-
-    renderPost = () => {
-        this.setState({
-            posts: this.props.value,
-            currentId: parseInt(this.props.match.params.id) 
-        })
+        // this.renderPost()
     }
 
     handleChange = (event) => {
-        console.log(event.target.name)
         this.setState({
                 [event.target.name]: event.target.value
         })
@@ -34,9 +25,9 @@ export class EditPost extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('object i want to send: ', this.state.currentId, this.state.nameChangeTo, this.state.tagsChangeTo, this.state.contentChangeTo)
+        console.log('object i want to send: ', this.props.data.currentPostId, this.state.nameChangeTo, this.state.tagsChangeTo, this.state.contentChangeTo)
         const editObject = {
-            id: this.state.currentId,
+            id: this.props.data.currentPostId,
             name: this.state.nameChangeTo,
             tags: this.state.tagsChangeTo,
             content: this.state.contentChangeTo
@@ -46,8 +37,8 @@ export class EditPost extends React.Component {
     }
 
     render(){
-        const currentPost = this.state.posts.find(post => post.id == this.state.currentId) || ''
-        console.log(this.state)
+        const currentPost = this.props.data.posts.find(post => post.id == this.props.data.currentPostId) || ''
+        console.log('this is the STATE: ', this.state)
         return (
             <div>
                 <p>You're on the edit page</p>
@@ -69,3 +60,17 @@ export class EditPost extends React.Component {
     }
 
 }
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.blogposts
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost)
