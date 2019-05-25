@@ -42,7 +42,7 @@ class DisplayPost extends React.Component {
                     <button onClick={this.deletePost}>Delete Post</button>
                 </div>
                 <div>
-                    <Link to='/editpost/2'><button onClick={this.editPost}>Edit Post</button></Link>
+                    <Link to='/editpost'><button onClick={this.editPost}>Edit Post</button></Link>
                 </div>
 
 

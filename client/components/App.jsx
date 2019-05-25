@@ -3,7 +3,7 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom'
 
 import { AddPost } from './AddPost'
 import  RandomPosts  from './RandomPosts'
-import { EditPost } from './EditPost'
+import  EditPost  from './EditPost'
 import { getPosts } from '../api'
 import DisplayPost from './DisplayPost'
 import { connect } from 'react-redux';
@@ -44,7 +44,7 @@ class App extends React.Component {
             <Route exact path='/' component={RandomPosts} />
             <Route exact path='/post/:id' component={DisplayPost} />
             <Route path='/addpost' component={AddPost} />
-            {/* <Route exact path='/editpost/:id' render={(props) => <EditPost {...props} value={this.state.posts} />} /> */}
+            <Route exact path='/editpost' component={EditPost} />
           </div>
         </div>
       </Router>
