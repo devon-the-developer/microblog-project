@@ -16,3 +16,11 @@ export function fetchBlogPosts() {
         })
     }
 }
+
+export function setCurrentId (currentPostId) {
+    console.log('Im setting the currentId to: ', currentPostId)
+    return {
+        type: 'SET_CURRENT_ID',
+        currentPostId
+    }
+}

@@ -1,9 +1,10 @@
-export default function (state = [], action) {
+export default function (state = {}, action) {
     console.log('in blogposts reducer: action.type is ', action.type)
     switch(action.type) {
         case 'SAVE_POSTS':
-            console.log(action.posts)
-            return action.posts
+            return {...state, posts: action.posts}
+        case 'SET_CURRENT_ID':
+            return {...state, currentPostId: action.currentPostId}
         default:
             return state
     }
