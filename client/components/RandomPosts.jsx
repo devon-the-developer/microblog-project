@@ -7,7 +7,6 @@ class RandomPosts extends React.Component {
 
     render(){
         const amountOfPosts = this.props.data.posts.length
-        console.log(amountOfPosts)
         const totalPostsToShow = 5
         const randomPostsToShow = this.props.data.posts.filter(post => post.id === (Math.floor((Math.random() * amountOfPosts))) )
         console.log(randomPostsToShow)
