@@ -1,16 +1,16 @@
 import React from 'react'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
 
-import AddPost from '../client/components/AddPost'
 
-// test('Has 2 <input /> fields', () => {
-//     const expected = 2 
-//     const wrapper = shallow(<AddPost />)
+import { AddPost } from '../client/components/AddPost'
 
-//     console.log(wrapper.debug())
+describe('<AddPost />', () => {
+    it('has 2 <input /> elements', () => {
+        const expected = 2
+        const wrapper = shallow(<AddPost />)
 
-//     const actual = wrapper.find('input')
-//     console.log(actual.length)
-//     expected(actual.length).toBe(expected)
-// })
+        const actual = wrapper.find('input')
 
+        expect(actual.length).toBe(expected)
+    })
+})
