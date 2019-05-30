@@ -1,21 +1,34 @@
 import React from 'react'
-import {shallow} from 'enzyme'
+import {configure, shallow} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-import App from '../client/components/App'
+configure({adapter: new Adapter()})
 
-test('Microblog Project Title exists', () => {
-  const expected = 'MicroBlog Project'
-  const wrapper = shallow(<App />)
+import { App } from '../client/components/App'
 
-  const actual = wrapper.find('h1')
-  expect(actual.text()).toBe(expected)
-})
+describe('<App />', () => {
+  it('should contain 1 HashRouter element', () => {
+    const props = {
+      posts: []
+    }
+    const wrapper = shallow(<App />, {context: {}, disableLifecycleMethods: true})
+    expect(wrapper.find('HashRouter').length).toBe(1)
+  })
+} )
 
-test('HashRouter is called', () => {
-  const expected = 1
-  const wrapper = shallow(<App />)
+// test('Microblog Project Title exists', () => {
+//   const expected = 'MicroBlog Project'
+//   const wrapper = shallow(<App />)
+
+//   const actual = wrapper.find('h1')
+//   expect(actual.text()).toBe(expected)
+// })
+
+// test('HashRouter is called', () => {
+//   const expected = 1
+//   const wrapper = shallow(<App />)
   
-  const actual = wrapper.find('HashRouter')
+//   const actual = wrapper.find('HashRouter')
   
-  expect(actual.length).toBe(expected)
-})
+//   expect(actual.length).toBe(expected)
+// })
