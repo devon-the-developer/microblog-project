@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { addPost } from '../api'
 
 
-class AddPost extends React.Component {
+export class AddPost extends React.Component {
     constructor(props) {
         super(props) 
         this.state = {

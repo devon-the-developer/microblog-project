@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { editPost } from '../api'
 
-class EditPost extends React.Component {
+export class EditPost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -38,7 +38,6 @@ class EditPost extends React.Component {
 
     render(){
         const currentPost = this.props.data.posts.find(post => post.id == this.props.data.currentPostId) || ''
-        console.log('this is the STATE: ', this.state)
         return (
             <div>
                 <p>You're on the edit page</p>

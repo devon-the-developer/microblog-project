@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddPost /> should match snapshot 1`] = `
+<div>
+  <form>
+    <h4>
+      Add Post
+    </h4>
+    <label>
+      Title: 
+    </label>
+    <input
+      name="name"
+      onChange={[Function]}
+      type="text"
+    />
+    <br />
+    <label>
+      Tags: 
+    </label>
+    <input
+      name="tags"
+      onChange={[Function]}
+      type="text"
+    />
+    <br />
+    <label>
+      Content: 
+    </label>
+    <textarea
+      cols="100"
+      name="content"
+      onChange={[Function]}
+      rows="50"
+      type="text"
+    />
+    <br />
+    <button
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

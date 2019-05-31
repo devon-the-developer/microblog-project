@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should match snapshot 1`] = `
+<HashRouter>
+  <div
+    style={
+      Object {
+        "background": "linear-gradient(to top, #ffffff, #abbaab)",
+        "padding": 50,
+      }
+    }
+  >
+    <h1>
+      <strong>
+        MicroBlog Project
+      </strong>
+    </h1>
+    <div
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
+      <Link
+        to="/"
+      >
+        Home
+      </Link>
+       
+      <Link
+        to="/addpost"
+      >
+        Add Post
+      </Link>
+    </div>
+    <br />
+    <br />
+    <div>
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(RandomPosts)",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(DisplayPost)",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/post/:id"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(AddPost)",
+            "type": [Function],
+          }
+        }
+        path="/addpost"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(EditPost)",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/editpost"
+      />
+    </div>
+  </div>
+</HashRouter>
+`;

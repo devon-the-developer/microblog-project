@@ -1,21 +1,25 @@
 import React from 'react'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 
-import App from '../client/components/App'
+import { App } from '../client/components/App'
 
-test('Microblog Project Title exists', () => {
-  const expected = 'MicroBlog Project'
-  const wrapper = shallow(<App />)
+describe('<App />', () => {
+  it('should contain 1 HashRouter element', () => {
+    const wrapper = shallow(<App />, {context: {}, disableLifecycleMethods: true})
+    expect(wrapper.find('HashRouter').length).toBe(1)
+  })
+  it('should contain the title: MicroBlog Project', () => {
+    const expected = 'MicroBlog Project'
+    const wrapper = shallow(<App />, {context: {}, disableLifecycleMethods: true})
 
-  const actual = wrapper.find('h1')
-  expect(actual.text()).toBe(expected)
-})
+    const actual = wrapper.find('h1').text()
 
-test('HashRouter is called', () => {
-  const expected = 1
-  const wrapper = shallow(<App />)
-  
-  const actual = wrapper.find('HashRouter')
-  
-  expect(actual.length).toBe(expected)
-})
+    expect(actual).toBe(expected)
+  })
+  it('should match snapshot', () => {
+    const tree = shallow(<App />, {context: {}, disableLifecycleMethods: true})
+    
+    expect(toJson(tree)).toMatchSnapshot()
+  })
+} )
