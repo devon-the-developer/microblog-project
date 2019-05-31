@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { fetchBlogPosts } from '../actions';
 
 
-class App extends React.Component {
+export class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
