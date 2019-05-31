@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
-class RandomPosts extends React.Component {
+export class RandomPosts extends React.Component {
 
     render(){
         return (

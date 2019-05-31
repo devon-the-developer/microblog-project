@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { deletePost } from '../api'
 import { setCurrentId } from '../actions'
 
-class DisplayPost extends React.Component {
+export class DisplayPost extends React.Component {
     constructor(props) {
         super(props)
 
