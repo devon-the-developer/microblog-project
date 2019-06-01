@@ -3,6 +3,7 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom'
 
 import  AddPost from './AddPost'
 import  RandomPosts  from './RandomPosts'
+import  PostList from './PostList'
 import  EditPost  from './EditPost'
 import { getPosts } from '../api'
 import DisplayPost from './DisplayPost'
@@ -36,7 +37,7 @@ export class App extends React.Component {
         <div style={basicStyle}>
           <h1><strong>MicroBlog Project</strong></h1>
           <div style={{display:'inline-block'}}>
-            <Link to='/'>Home</Link> <Link to='/addpost'>Add Post</Link>
+            <Link to='/'>Home</Link> <Link to='/addpost'>Add Post</Link> <Link to='/allposts'>All Posts</Link>
           </div>
           <br />
           <br />
@@ -45,6 +46,7 @@ export class App extends React.Component {
             <Route exact path='/post/:id' component={DisplayPost} />
             <Route path='/addpost' component={AddPost} />
             <Route exact path='/editpost' component={EditPost} />
+            <Route exact path='/allposts' component={PostList} />
           </div>
         </div>
       </Router>
