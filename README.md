@@ -19,7 +19,7 @@ A user should be able to edit a post (Working)
 
 A user should be able to give a Rating for each tip/post 
 
-A user should be able to see a list of random posts 
+A user should be able to see a list of random posts (Done)
 
 Set it up to work with Redux (Done)
 
