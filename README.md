@@ -16,6 +16,8 @@ A user should be able to search and sort through their posts.
 A user should be able to delete each post (Done)
 
 A user should be able to edit a post (Working)
+    > needs to save the whole post without having to change each input
+    > needs to refresh the currentposts on submit
 
 A user should be able to give a Rating for each tip/post 
 
