@@ -8,12 +8,18 @@ export class RandomPosts extends React.Component {
     render(){
         const amountOfPosts = this.props.data.posts.length
         const totalPostsToShow = 5
-        const randomPostsToShow = this.props.data.posts.filter(post => post.id === (Math.floor((Math.random() * amountOfPosts))) )
-        console.log(randomPostsToShow)
+        const randomPostsToShow = this.props.data.posts
+        const newRandomPosts = []
+        if (randomPostsToShow.length !== 0) {
+            for(let i = 0; i < totalPostsToShow; i++) {
+                const randomNumberOfPost = (Math.floor((Math.random() * amountOfPosts)))
+                newRandomPosts.push(this.props.data.posts[randomNumberOfPost])
+            }
+        }
         return (
             <div>
                 <h4>Random Posts</h4>
-                {randomPostsToShow.map((post, index) => <p key={index}><strong><Link to={`/post/${post.id}`}>{post.name}</Link></strong><br />{post.content}</p>)}
+                {newRandomPosts.map((post, index) => <p key={index}><strong><Link to={`/post/${post}`}>{post.name}</Link></strong><br />{post.content}</p>)}
             </div>
         )
     }
