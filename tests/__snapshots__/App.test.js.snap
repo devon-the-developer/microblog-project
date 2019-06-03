@@ -33,6 +33,12 @@ exports[`<App /> should match snapshot 1`] = `
       >
         Add Post
       </Link>
+       
+      <Link
+        to="/allposts"
+      >
+        All Posts
+      </Link>
     </div>
     <br />
     <br />
@@ -87,6 +93,19 @@ exports[`<App /> should match snapshot 1`] = `
         }
         exact={true}
         path="/editpost"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(PostList)",
+            "type": [Function],
+          }
+        }
+        exact={true}
+        path="/allposts"
       />
     </div>
   </div>

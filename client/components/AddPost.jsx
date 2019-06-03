@@ -30,7 +30,7 @@ export class AddPost extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='blogpost'>
                 <form>
                     <h4>Add Post</h4>
                     <label>Title: </label>
