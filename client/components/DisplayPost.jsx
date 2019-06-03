@@ -34,7 +34,7 @@ export class DisplayPost extends React.Component {
         const currentPost = this.props.data.posts.find(post => post.id == this.props.data.currentPostId) || ''
         console.log('Global State: ', this.props)
         return(
-            <div>
+            <div className='blogpost'>
                 <h2>{currentPost.name}</h2>
                 <span><strong>Tags: </strong>{currentPost.tags}</span>
                 <p>{currentPost.content}</p>

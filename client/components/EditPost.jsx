@@ -39,8 +39,7 @@ export class EditPost extends React.Component {
     render(){
         const currentPost = this.props.data.posts.find(post => post.id == this.props.data.currentPostId) || ''
         return (
-            <div>
-                <p>You're on the edit page</p>
+            <div className='blogpost'>
                 <form>
                     <h4>Edit Post</h4>
                     <label>Title: </label>

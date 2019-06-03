@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-class PostList extends React.Component {
+export class PostList extends React.Component {
     render() {
         return (
             <div>
                 {this.props.data.posts.map((post, index) => 
-                    <p key={index}>
+                    <p className='blogpost' key={index}>
                         <strong>
                             <Link to={`/post/${post.id}`}>
                                 {post.name}
