@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { editPost } from '../api'
+import { fetchBlogPosts } from '../actions';
 
 export class EditPost extends React.Component {
     constructor(props) {
@@ -33,6 +34,7 @@ export class EditPost extends React.Component {
             content: this.state.contentChangeTo
         }
         editPost(editObject)
+        .then(this.props.getPostsAgain())
         this.props.history.push('/')
     }
 
@@ -67,7 +69,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        
+       getPostsAgain: () => dispatch(fetchBlogPosts())
     }
 }
 
