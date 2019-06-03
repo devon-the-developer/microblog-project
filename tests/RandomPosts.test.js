@@ -8,13 +8,39 @@ describe('<RandomPosts />', () => {
         const props = {
             data: {
                 posts: [
-                    {
+                    {   
+                        id: 1,
                         name: 'post1',
                         tags: 'tech' ,
                         content: 'fake content'
                     },
                     {
+                        id: 2,
                         name: 'post2',
+                        tags: 'java' ,
+                        content: ' more fake content'
+                    },
+                    {   
+                        id: 3,
+                        name: 'post3',
+                        tags: 'tech' ,
+                        content: 'fake content'
+                    },
+                    {
+                        id: 4,
+                        name: 'post4',
+                        tags: 'java' ,
+                        content: ' more fake content'
+                    },
+                    {   
+                        id: 5,
+                        name: 'post5',
+                        tags: 'tech' ,
+                        content: 'fake content'
+                    },
+                    {
+                        id: 6,
+                        name: 'post6',
                         tags: 'java' ,
                         content: ' more fake content'
                     }
