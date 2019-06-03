@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { addPost } from '../api'
+import { fetchBlogPosts } from '../actions';
 
 
 export class AddPost extends React.Component {
@@ -24,7 +25,7 @@ export class AddPost extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         addPost(this.state)
-        .then()
+        .then(this.props.getPostsAgain())
         this.props.history.push('/')
     }
 
@@ -49,4 +50,10 @@ export class AddPost extends React.Component {
     }
 }
 
-export default connect()(AddPost)
+const mapDispatchToProps = (dispatch) => {
+    return {
+       getPostsAgain: () => dispatch(fetchBlogPosts())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddPost)
