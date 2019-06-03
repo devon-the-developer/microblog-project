@@ -10,10 +10,17 @@ export class RandomPosts extends React.Component {
         const totalPostsToShow = 5
         const randomPostsToShow = this.props.data.posts
         const newRandomPosts = []
+        let previousPostIdList = []
         if (randomPostsToShow.length !== 0) {
-            for(let i = 0; i < totalPostsToShow; i++) {
+            while(newRandomPosts.length < totalPostsToShow) {
+                function checkIfAlreadyInList(id) {
+                    return id !== randomNumberOfPost;
+                  }
                 const randomNumberOfPost = (Math.floor((Math.random() * amountOfPosts)))
-                newRandomPosts.push(this.props.data.posts[randomNumberOfPost])
+                if(previousPostIdList.every(checkIfAlreadyInList)) {
+                    previousPostIdList.push(randomNumberOfPost)
+                    newRandomPosts.push(this.props.data.posts[randomNumberOfPost])
+                }
             }
         }
         return (
