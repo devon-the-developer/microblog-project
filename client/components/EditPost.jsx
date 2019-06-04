@@ -15,7 +15,12 @@ export class EditPost extends React.Component {
     }
 
     componentDidMount() {
-        // this.renderPost()
+        const currentPost = this.props.data.posts.find(post => post.id == this.props.data.currentPostId) || ''
+        this.setState({
+            nameChangeTo: currentPost.name,
+            tagsChangeTo: currentPost.tags,
+            contentChangeTo: currentPost.content
+        })
     }
 
     handleChange = (event) => {
@@ -26,7 +31,6 @@ export class EditPost extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('object i want to send: ', this.props.data.currentPostId, this.state.nameChangeTo, this.state.tagsChangeTo, this.state.contentChangeTo)
         const editObject = {
             id: this.props.data.currentPostId,
             name: this.state.nameChangeTo,
