@@ -1,29 +1,38 @@
-## MicroBlog Project 
+# MicroBlog Project 
 
 A micro blogging web app that can be used for storing useful tips/information
 
 <strong>MVP:</strong> 
 
-Allows a user to enter a new tip/blog via a form ####(Done)
+Allows a user to enter a new tip/blog via a form 
+####(Done)
 
-A user can view each post made individually ####(Done)
+A user can view each post made individually 
+####(Done)
 
 
 <strong>Feature Ideas:</strong>
 
 A user should be able to search and sort through their posts.
 
-A user should be able to delete each post ####(Done)
+A user should be able to delete each post 
+####(Done)
 
-A user should be able to edit a post ####(Done)
-    - needs to save the whole post without having to change each input ####(Done)
-    - needs to refresh the currentposts on submit ####(Done)
+A user should be able to edit a post 
+####(Done)
+
+- needs to save the whole post without having to change each input 
+####(Done)
+- needs to refresh the currentposts on submit 
+####(Done)
 
 A user should be able to give a Rating for each tip/post 
 
-A user should be able to see a list of random posts ####(Done)
+A user should be able to see a list of random posts 
+####(Done)
 
-Set it up to work with Redux ####(Done)
+Set it up to work with Redux 
+####(Done)
 
 React Testing 
 
